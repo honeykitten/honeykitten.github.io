@@ -13,16 +13,16 @@
         <link rel="icon" href="https://honeykitten.github.io../../../../assets/images/favicon.png">
     
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Daniel Yang","sameAs":["https://dailymusings.tistory.com/","https://www.tumblr.com/blog/yangmutae","https://www.linkedin.com/in/mutae-yang-b0b86b8b/","#about"],"image":"image.png"},"articleBody":"상관계수 시각화를 통해 두 변수간의 선형적 또는 비선형적 관계를 갖고 있는지 분석을 해겠습니다.\n\n\n1. 필요한 라이브러리 삽입기본적으로 corrplot 라이브러리를 활용합니다.\n1234567install.packages(c(&#x27;corrgram&#x27;, &#x27;corrplot&#x27;, &#x27;QuantPsyc&#x27;), repos = &#x27;http://cran.nexr.com&#x27;)library(psych)library(corrgram)library(corrplot)library(ellipse)library(car)library(QuantPsyc)\n\n2. 워킹 디렉토리 설정하기1setwd(&quot;C:/Users/Qtest/Documents/R4&quot;)\n\n3. 기본값을 세팅1default.set &lt;- par(no.readonly = TRUE)\n\n4. csv데이터를 import1data = read.csv(&#x27;data.csv&#x27;)\n\n5. 데이터를 확인1head(data)\n\n6. 데이터 시각화1corrplot(cor(data), type=&quot;upper&quot;, order=&quot;hclust&quot;, tl.col=&quot;black&quot;, tl.srt=45)\n","dateCreated":"2017-12-12T21:10:16+09:00","dateModified":"2020-12-22T02:30:37+09:00","datePublished":"2017-12-12T21:10:16+09:00","description":"상관계수 시각화를 통해 두 변수간의 선형적 또는 비선형적 관계를 갖고 있는지 분석을 해겠습니다.","headline":"Visualizing correlation coefficient","image":["https://drive.google.com/uc?export=download&id=1QquYWA6cchFw3sqM9ArVzaPzgQHwjo8L"],"mainEntityOfPage":{"@type":"WebPage","@id":"../../../../https:/honeykitten.github.io/2017/12/12/Visualizing-correlation-coefficient/"},"publisher":{"@type":"Organization","name":"Daniel Yang","sameAs":["https://dailymusings.tistory.com/","https://www.tumblr.com/blog/yangmutae","https://www.linkedin.com/in/mutae-yang-b0b86b8b/","#about"],"image":"image.png","logo":{"@type":"ImageObject","url":"image.png"}},"url":"../../../../https:/honeykitten.github.io/2017/12/12/Visualizing-correlation-coefficient/","keywords":"R-Programming","thumbnailUrl":"https://drive.google.com/uc?export=download&id=1QquYWA6cchFw3sqM9ArVzaPzgQHwjo8L"}</script>
-    <meta name="description" content="상관계수 시각화를 통해 두 변수간의 선형적 또는 비선형적 관계를 갖고 있는지 분석을 해겠습니다.">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Daniel Yang","sameAs":["https://dailymusings.tistory.com/","https://www.tumblr.com/blog/yangmutae","https://www.linkedin.com/in/mutae-yang-b0b86b8b/","#about"],"image":"image.png"},"articleBody":"상관계수 시각화를 통해 두 변수간의 선형적 또는 비선형적 관계를 갖고 있는지 분석을 해보겠습니다.\n\n\n1. 필요한 라이브러리 삽입기본적으로 corrplot 라이브러리를 활용합니다.\n1234567install.packages(c(&#x27;corrgram&#x27;, &#x27;corrplot&#x27;, &#x27;QuantPsyc&#x27;), repos = &#x27;http://cran.nexr.com&#x27;)library(psych)library(corrgram)library(corrplot)library(ellipse)library(car)library(QuantPsyc)\n\n2. 워킹 디렉토리 설정하기1setwd(&quot;C:/Users/Qtest/Documents/R4&quot;)\n\n3. 기본값을 세팅1default.set &lt;- par(no.readonly = TRUE)\n\n4. csv데이터를 import1data = read.csv(&#x27;data.csv&#x27;)\n\n5. 데이터를 확인1head(data)\n\n6. 데이터 시각화1corrplot(cor(data), type=&quot;upper&quot;, order=&quot;hclust&quot;, tl.col=&quot;black&quot;, tl.srt=45)\n","dateCreated":"2017-12-12T21:10:16+09:00","dateModified":"2020-12-22T02:32:50+09:00","datePublished":"2017-12-12T21:10:16+09:00","description":"상관계수 시각화를 통해 두 변수간의 선형적 또는 비선형적 관계를 갖고 있는지 분석을 해보겠습니다.","headline":"Visualizing correlation coefficient","image":["https://drive.google.com/uc?export=download&id=1QquYWA6cchFw3sqM9ArVzaPzgQHwjo8L"],"mainEntityOfPage":{"@type":"WebPage","@id":"../../../../https:/honeykitten.github.io/2017/12/12/Visualizing-correlation-coefficient/"},"publisher":{"@type":"Organization","name":"Daniel Yang","sameAs":["https://dailymusings.tistory.com/","https://www.tumblr.com/blog/yangmutae","https://www.linkedin.com/in/mutae-yang-b0b86b8b/","#about"],"image":"image.png","logo":{"@type":"ImageObject","url":"image.png"}},"url":"../../../../https:/honeykitten.github.io/2017/12/12/Visualizing-correlation-coefficient/","keywords":"R-Programming","thumbnailUrl":"https://drive.google.com/uc?export=download&id=1QquYWA6cchFw3sqM9ArVzaPzgQHwjo8L"}</script>
+    <meta name="description" content="상관계수 시각화를 통해 두 변수간의 선형적 또는 비선형적 관계를 갖고 있는지 분석을 해보겠습니다.">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="Visualizing correlation coefficient">
 <meta property="og:url" content="https://honeykitten.github.io/2017/12/12/Visualizing-correlation-coefficient/index.html">
 <meta property="og:site_name" content="Devlog">
-<meta property="og:description" content="상관계수 시각화를 통해 두 변수간의 선형적 또는 비선형적 관계를 갖고 있는지 분석을 해겠습니다.">
+<meta property="og:description" content="상관계수 시각화를 통해 두 변수간의 선형적 또는 비선형적 관계를 갖고 있는지 분석을 해보겠습니다.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2017-12-12T12:10:16.000Z">
-<meta property="article:modified_time" content="2020-12-21T17:30:37.611Z">
+<meta property="article:modified_time" content="2020-12-21T17:32:50.428Z">
 <meta property="article:author" content="Daniel Yang">
 <meta property="article:tag" content="R-Programming">
 <meta name="twitter:card" content="summary">
@@ -118,7 +118,7 @@
                 </a>
                 <h4 class="sidebar-profile-name">Daniel Yang</h4>
                 
-                    <h5 class="sidebar-profile-bio"><p><a href="mailto:&#100;&#x61;&#x6e;&#x69;&#x65;&#x6c;&#x2e;&#x79;&#x61;&#x6e;&#103;&#x40;&#107;&#97;&#107;&#97;&#x6f;&#46;&#x63;&#111;&#109;">&#100;&#x61;&#x6e;&#x69;&#x65;&#x6c;&#x2e;&#x79;&#x61;&#x6e;&#103;&#x40;&#107;&#97;&#107;&#97;&#x6f;&#46;&#x63;&#111;&#109;</a></p>
+                    <h5 class="sidebar-profile-bio"><p><a href="mailto:&#x64;&#x61;&#x6e;&#x69;&#101;&#108;&#x2e;&#x79;&#97;&#110;&#103;&#x40;&#x6b;&#x61;&#107;&#97;&#111;&#46;&#99;&#x6f;&#x6d;">&#x64;&#x61;&#x6e;&#x69;&#101;&#108;&#x2e;&#x79;&#97;&#110;&#103;&#x40;&#x6b;&#x61;&#107;&#97;&#111;&#46;&#99;&#x6f;&#x6d;</a></p>
 </h5>
                 
             </div>
@@ -276,7 +276,7 @@
     
     <div class="post-content markdown">
         <div class="main-content-wrap">
-            <p>상관계수 시각화를 통해 두 변수간의 선형적 또는 비선형적 관계를 갖고 있는지 분석을 해겠습니다.</p>
+            <p>상관계수 시각화를 통해 두 변수간의 선형적 또는 비선형적 관계를 갖고 있는지 분석을 해보겠습니다.</p>
 <a id="more"></a>
 
 <h3 id="1-필요한-라이브러리-삽입"><a href="#1-필요한-라이브러리-삽입" class="headerlink" title="1. 필요한 라이브러리 삽입"></a>1. 필요한 라이브러리 삽입</h3><p>기본적으로 corrplot 라이브러리를 활용합니다.</p>
@@ -457,7 +457,7 @@
         
             <h4 id="about-card-name">Daniel Yang</h4>
         
-            <div id="about-card-bio"><p><a href="mailto:&#x64;&#x61;&#x6e;&#105;&#101;&#108;&#46;&#121;&#x61;&#x6e;&#x67;&#64;&#x6b;&#x61;&#107;&#x61;&#111;&#46;&#x63;&#111;&#x6d;">&#x64;&#x61;&#x6e;&#105;&#101;&#108;&#46;&#121;&#x61;&#x6e;&#x67;&#64;&#x6b;&#x61;&#107;&#x61;&#111;&#46;&#x63;&#111;&#x6d;</a></p>
+            <div id="about-card-bio"><p><a href="mailto:&#100;&#x61;&#110;&#105;&#x65;&#108;&#46;&#121;&#97;&#x6e;&#x67;&#x40;&#107;&#x61;&#107;&#x61;&#x6f;&#46;&#x63;&#111;&#x6d;">&#100;&#x61;&#110;&#105;&#x65;&#108;&#46;&#121;&#97;&#x6e;&#x67;&#x40;&#107;&#x61;&#107;&#x61;&#x6f;&#46;&#x63;&#111;&#x6d;</a></p>
 </div>
         
         
