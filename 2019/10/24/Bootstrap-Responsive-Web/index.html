@@ -1,0 +1,544 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Devlog">
+    <title>부트스트랩 반응형 웹 제작방법 - Devlog</title>
+    <meta name="author" content="Daniel Yang">
+    
+    
+        <link rel="icon" href="https://honeykitten.github.io../../../../assets/images/favicon.png">
+    
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Daniel Yang","sameAs":["https://dailymusings.tistory.com/","https://www.tumblr.com/blog/yangmutae","https://www.linkedin.com/in/mutae-yang-b0b86b8b/","#about"],"image":"image.png"},"articleBody":"\n\n부트스트랩의 그리드 시스템은 반응형 웹 디자인을 할 때 가장 빛을 발합니다.\n다음은 부트스트랩에서 정해둔 구간들입니다.\n\nExtra Small (&lt; 576px): 모바일\nSmall (≥ 576px): 모바일\nMedium (≥ 768px): 타블릿\nLarge (≥ 992px): 데스크탑\nExtra Large (≥ 1200px): 와이드 데스크탑\n\n컨테이너(container)기본적으로 컨테이너는 가운데 정렬이 되어 있고, 그리드의 행들을 감싸주는 역할을 합니다 (행들은 열들을 감싸주고 있고요!). 컨테이너의 종류는 두 가지인데요.\n(div class=”container”): 구간별로 그리드에 고정된 width를 설정해줍니다.(div class=”container-fluid”): 그리드는 항상 width: 100%;입니다.\n(div class=”container”)만약 구간별로 그리드에 고정된 가로값을 설정해주고 싶으면 “container” 클래스를 사용하세요. 구간별로 그리드가 고정되어 있으면 원하는 레이아웃을 만들기 쉽습니다.\n“container”클래스를 사용하면 아래의 CSS 코드가 적용됩니다.\n1234567891011121314151617181920212223242526272829303132333435.container &#123;  width: 100%; /* extra small */  padding-right: 15px;  padding-left: 15px;  margin-right: auto;  margin-left: auto;&#125;/* small */@media (min-width: 576px) &#123;  .container &#123;    max-width: 540px;  &#125;&#125;/* medium */@media (min-width: 768px) &#123;  .container &#123;    max-width: 720px;  &#125;&#125;/* large */@media (min-width: 992px) &#123;  .container &#123;    max-width: 960px;  &#125;&#125;/* extra large */@media (min-width: 1200px) &#123;  .container &#123;    max-width: 1140px;  &#125;&#125;\n\n(div class=”container-fluid”)상황에 따라 그리드가 항상 100%의 가로 길이를 갖는 것이 좋을 때가 있는데 “container-fluid” 클래스를 사용하면 됩니다. “container-fluid”클래스를 사용하면 아래의 CSS 코드가 적용됩니다.\n1234567.container-fluid &#123;  width: 100%;  padding-right: 15px;  padding-left: 15px;  margin-right: auto;  margin-left: auto;&#125;\n\n열(Column)반응형 구간별로 (총 12칸 중) 열이 차지하는 칸의 개수도 다르게 할 수 있습니다.예시를 몇 가지 봅시다.\n예시 1 (구간별로 모두 설정되어 있는 경우)\n1&lt;div class=&quot;col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2&quot;&gt;\n\nExtra Small (&lt; 576px): 12칸을 모두 차지\nSmall (≥ 576px): 6칸 차지\nMedium (≥ 768px): 4칸 차지\nLarge (≥ 992px): 3칸 차지\nExtra Large (≥ 1200px): 2칸 차지\n\n예시 2 (특정 구간만 설정되어 있는 경우)아래와 같이 특정 구간에만 열 수가 설정되어 있는 경우도 있습니다. 그렇다면 그 구간부터 새로운 설정이 있는 상위 구간까지는 같은 칸 수를 차지합니다.\n1&lt;div class=&quot;col-12 col-lg-3&quot;&gt;\n\nExtra Small (&lt; 576px): 12칸을 모두 차지\nSmall (≥ 576px): 12칸을 모두 차지\nMedium (≥ 768px): 12칸을 모두 차지\nLarge (≥ 992px): 3칸 차지\nExtra Large (≥ 1200px): 3칸 차지\n\n1&lt;div class=&quot;col-6&quot;&gt;\n\nExtra Small (&lt; 576px): 6칸 차지\nSmall (≥ 576px): 6칸 차지\nMedium (≥ 768px): 6칸 차지\nLarge (≥ 992px): 6칸 차지\nExtra Large (≥ 1200px): 6칸 차지\n","dateCreated":"2019-10-24T16:59:05+09:00","dateModified":"2020-09-07T16:48:40+09:00","datePublished":"2019-10-24T16:59:05+09:00","description":"부트스트랩에서 반응형 디자인을 사용하는 방법을 알아봅시다. 그리드 시스템을 사용하여 각 해상도별로 최적화를 할 수 있습니다.","headline":"부트스트랩 반응형 웹 제작방법","image":["https://drive.google.com/uc?export=view&id=1TLHgqxlvTQZ81ASillyJFO9NbdSFbsxc"],"mainEntityOfPage":{"@type":"WebPage","@id":"../../../../https:/honeykitten.github.io/2019/10/24/Bootstrap-Responsive-Web/"},"publisher":{"@type":"Organization","name":"Daniel Yang","sameAs":["https://dailymusings.tistory.com/","https://www.tumblr.com/blog/yangmutae","https://www.linkedin.com/in/mutae-yang-b0b86b8b/","#about"],"image":"image.png","logo":{"@type":"ImageObject","url":"image.png"}},"url":"../../../../https:/honeykitten.github.io/2019/10/24/Bootstrap-Responsive-Web/","keywords":"html, css","thumbnailUrl":"https://drive.google.com/uc?export=view&id=1TLHgqxlvTQZ81ASillyJFO9NbdSFbsxc"}</script>
+    <meta name="description" content="부트스트랩에서 반응형 디자인을 사용하는 방법을 알아봅시다. 그리드 시스템을 사용하여 각 해상도별로 최적화를 할 수 있습니다.">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="부트스트랩 반응형 웹 제작방법">
+<meta property="og:url" content="https://honeykitten.github.io/2019/10/24/Bootstrap-Responsive-Web/index.html">
+<meta property="og:site_name" content="Devlog">
+<meta property="og:description" content="부트스트랩에서 반응형 디자인을 사용하는 방법을 알아봅시다. 그리드 시스템을 사용하여 각 해상도별로 최적화를 할 수 있습니다.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-10-24T07:59:05.000Z">
+<meta property="article:modified_time" content="2020-09-07T07:48:40.756Z">
+<meta property="article:author" content="Daniel Yang">
+<meta property="article:tag" content="html">
+<meta property="article:tag" content="css">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="https://honeykitten.github.io../../../../assets/images/image.png"/>
+    
+    
+        <meta property="og:image" content="https://drive.google.com/uc?export=view&amp;id=1TLHgqxlvTQZ81ASillyJFO9NbdSFbsxc"/>
+        <meta class="swiftype" name="image" data-type="enum" content="https://drive.google.com/uc?export=view&amp;id=1TLHgqxlvTQZ81ASillyJFO9NbdSFbsxc"/>
+    
+    
+    
+    <!--STYLES-->
+    
+<link rel="stylesheet" href="../../../../assets/css/all.css">
+
+    
+<link rel="stylesheet" href="../../../../assets/css/jquery.fancybox.css">
+
+    
+<link rel="stylesheet" href="../../../../assets/css/thumbs.css">
+
+    
+<link rel="stylesheet" href="../../../../assets/css/tranquilpeak.css">
+
+    <!--STYLES END-->
+    
+
+    
+
+    
+        
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+        
+            
+        
+    
+
+<header id="header" data-behavior="5">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a
+            class="header-title-link"
+            href="../../../../"
+            aria-label=""
+        >
+            Devlog
+        </a>
+    </div>
+    
+        
+            <a
+                class="header-right-picture "
+                href="../../../../#about"
+                aria-label="Open the link: ../../../../#about"
+            >
+        
+        
+            <img class="header-picture" src="../../../../assets/images/image.png" alt="Author&#39;s picture"/>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="5">
+    <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+                <a
+                    href="../../../../#about"
+                    aria-label="Read more about the author"
+                >
+                    <img class="sidebar-profile-picture" src="../../../../assets/images/image.png" alt="Author&#39;s picture"/>
+                </a>
+                <h4 class="sidebar-profile-name">Daniel Yang</h4>
+                
+                    <h5 class="sidebar-profile-bio"><p><a href="mailto:&#100;&#x61;&#x6e;&#x69;&#x65;&#108;&#x2e;&#121;&#97;&#110;&#103;&#64;&#x6b;&#x61;&#107;&#97;&#111;&#x2e;&#x63;&#111;&#x6d;">&#100;&#x61;&#x6e;&#x69;&#x65;&#108;&#x2e;&#121;&#97;&#110;&#103;&#64;&#x6b;&#x61;&#107;&#97;&#111;&#x2e;&#x63;&#111;&#x6d;</a></p>
+</h5>
+                
+            </div>
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="../../../../index.html"
+                            
+                            rel="noopener"
+                            title="Home"
+                        >
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="../../../../all-categories"
+                            
+                            rel="noopener"
+                            title="Categories"
+                        >
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="../../../../all-tags"
+                            
+                            rel="noopener"
+                            title="Tags"
+                        >
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="../../../../https:/dailymusings.tistory.com/"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="Tistory"
+                        >
+                        <i class="sidebar-button-icon fab fa-accusoft" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tistory</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="../../../../https:/www.tumblr.com/blog/yangmutae"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="Tumblr"
+                        >
+                        <i class="sidebar-button-icon fab fa-tumblr" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tumblr</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="../../../../https:/www.linkedin.com/in/mutae-yang-b0b86b8b/"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="LinkedIn"
+                        >
+                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">LinkedIn</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="../../../../#about"
+                            
+                            rel="noopener"
+                            title="About"
+                        >
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="5"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            부트스트랩 반응형 웹 제작방법
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2019-10-24T16:59:05+09:00">
+	
+		    Oct 24, 2019
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="../../../../categories/Web-Programming/">Web Programming</a>
+
+
+    
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <!-- excerpt -->
+
+<p>부트스트랩의 그리드 시스템은 반응형 웹 디자인을 할 때 가장 빛을 발합니다.</p>
+<p>다음은 부트스트랩에서 정해둔 구간들입니다.</p>
+<ol>
+<li>Extra Small (&lt; 576px): 모바일</li>
+<li>Small (≥ 576px): 모바일</li>
+<li>Medium (≥ 768px): 타블릿</li>
+<li>Large (≥ 992px): 데스크탑</li>
+<li>Extra Large (≥ 1200px): 와이드 데스크탑</li>
+</ol>
+<h3 id="컨테이너-container"><a href="#컨테이너-container" class="headerlink" title="컨테이너(container)"></a>컨테이너(container)</h3><p>기본적으로 컨테이너는 가운데 정렬이 되어 있고, 그리드의 행들을 감싸주는 역할을 합니다 (행들은 열들을 감싸주고 있고요!). 컨테이너의 종류는 두 가지인데요.</p>
+<p>(div class=”container”): 구간별로 그리드에 고정된 width를 설정해줍니다.<br>(div class=”container-fluid”): 그리드는 항상 width: 100%;입니다.</p>
+<h3 id="div-class-”container”"><a href="#div-class-”container”" class="headerlink" title="(div class=”container”)"></a>(div class=”container”)</h3><p>만약 구간별로 그리드에 고정된 가로값을 설정해주고 싶으면 “container” 클래스를 사용하세요. 구간별로 그리드가 고정되어 있으면 원하는 레이아웃을 만들기 쉽습니다.</p>
+<p>“container”클래스를 사용하면 아래의 CSS 코드가 적용됩니다.</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>; <span class="comment">/* extra small */</span></span><br><span class="line">  <span class="attribute">padding-right</span>: <span class="number">15px</span>;</span><br><span class="line">  <span class="attribute">padding-left</span>: <span class="number">15px</span>;</span><br><span class="line">  <span class="attribute">margin-right</span>: auto;</span><br><span class="line">  <span class="attribute">margin-left</span>: auto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* small */</span></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width:</span> <span class="number">576px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">max-width</span>: <span class="number">540px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* medium */</span></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width:</span> <span class="number">768px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">max-width</span>: <span class="number">720px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* large */</span></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width:</span> <span class="number">992px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">max-width</span>: <span class="number">960px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* extra large */</span></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width:</span> <span class="number">1200px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">max-width</span>: <span class="number">1140px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="div-class-”container-fluid”"><a href="#div-class-”container-fluid”" class="headerlink" title="(div class=”container-fluid”)"></a>(div class=”container-fluid”)</h3><p>상황에 따라 그리드가 항상 100%의 가로 길이를 갖는 것이 좋을 때가 있는데 “container-fluid” 클래스를 사용하면 됩니다. “container-fluid”클래스를 사용하면 아래의 CSS 코드가 적용됩니다.</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container-fluid</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">padding-right</span>: <span class="number">15px</span>;</span><br><span class="line">  <span class="attribute">padding-left</span>: <span class="number">15px</span>;</span><br><span class="line">  <span class="attribute">margin-right</span>: auto;</span><br><span class="line">  <span class="attribute">margin-left</span>: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="열-Column"><a href="#열-Column" class="headerlink" title="열(Column)"></a>열(Column)</h3><p>반응형 구간별로 (총 12칸 중) 열이 차지하는 칸의 개수도 다르게 할 수 있습니다.<br>예시를 몇 가지 봅시다.<br></br></p>
+<p><strong>예시 1 (구간별로 모두 설정되어 있는 경우)</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>Extra Small (&lt; 576px): 12칸을 모두 차지</li>
+<li>Small (≥ 576px): 6칸 차지</li>
+<li>Medium (≥ 768px): 4칸 차지</li>
+<li>Large (≥ 992px): 3칸 차지</li>
+<li>Extra Large (≥ 1200px): 2칸 차지</li>
+</ol>
+<p><strong>예시 2 (특정 구간만 설정되어 있는 경우)</strong><br>아래와 같이 특정 구간에만 열 수가 설정되어 있는 경우도 있습니다. 그렇다면 그 구간부터 새로운 설정이 있는 상위 구간까지는 같은 칸 수를 차지합니다.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-12 col-lg-3&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>Extra Small (&lt; 576px): 12칸을 모두 차지</li>
+<li>Small (≥ 576px): 12칸을 모두 차지</li>
+<li>Medium (≥ 768px): 12칸을 모두 차지</li>
+<li>Large (≥ 992px): 3칸 차지</li>
+<li>Extra Large (≥ 1200px): 3칸 차지</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-6&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>Extra Small (&lt; 576px): 6칸 차지</li>
+<li>Small (≥ 576px): 6칸 차지</li>
+<li>Medium (≥ 768px): 6칸 차지</li>
+<li>Large (≥ 992px): 6칸 차지</li>
+<li>Extra Large (≥ 1200px): 6칸 차지</li>
+</ol>
+            
+
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-none-link" href="../../../../tags/css/" rel="tag">css</a> <a class="tag tag--primary tag--small t-none-link" href="../../../../tags/html/" rel="tag">html</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="../../../../2020/04/30/Hexo-Tranquilpeak/"
+                    data-tooltip="Hexo Blog 블로그 구축 (Tranquilpeak 테마)"
+                    aria-label="PREVIOUS: Hexo Blog 블로그 구축 (Tranquilpeak 테마)"
+                >
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="../Bootstrap-Grid/"
+                    data-tooltip="부트스트랩 그리드 활용법"
+                    aria-label="NEXT: 부트스트랩 그리드 활용법"
+                >
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a
+                class="post-action-btn btn btn--default btn-open-shareoptions"
+                href="#btn-open-shareoptions"
+                aria-label="Share this post"
+            >
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2020 Daniel Yang. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="../../../../2020/04/30/Hexo-Tranquilpeak/"
+                    data-tooltip="Hexo Blog 블로그 구축 (Tranquilpeak 테마)"
+                    aria-label="PREVIOUS: Hexo Blog 블로그 구축 (Tranquilpeak 테마)"
+                >
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="../Bootstrap-Grid/"
+                    data-tooltip="부트스트랩 그리드 활용법"
+                    aria-label="NEXT: 부트스트랩 그리드 활용법"
+                >
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a
+                class="post-action-btn btn btn--default btn-open-shareoptions"
+                href="#btn-open-shareoptions"
+                aria-label="Share this post"
+            >
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+
+            
+        </div>
+        
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <img id="about-card-picture" src="../../../../assets/images/image.png" alt="Author&#39;s picture"/>
+        
+            <h4 id="about-card-name">Daniel Yang</h4>
+        
+            <div id="about-card-bio"><p><a href="mailto:&#x64;&#97;&#x6e;&#x69;&#x65;&#108;&#x2e;&#121;&#x61;&#110;&#x67;&#x40;&#107;&#x61;&#107;&#x61;&#111;&#x2e;&#99;&#x6f;&#109;">&#x64;&#97;&#x6e;&#x69;&#x65;&#108;&#x2e;&#121;&#x61;&#110;&#x67;&#x40;&#107;&#x61;&#107;&#x61;&#111;&#x2e;&#99;&#x6f;&#109;</a></p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>Product Manager</p>
+
+            </div>
+        
+        
+            <div id="about-card-location">
+                <i class="fa fa-map-marker-alt"></i>
+                <br/>
+                Nanaimo, Canada
+            </div>
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('../../../../assets/images/cover-v1.2.0.jpg');"></div>
+        <!--SCRIPTS-->
+
+<script src="../../../../assets/js/jquery.js"></script>
+
+
+<script src="../../../../assets/js/jquery.fancybox.js"></script>
+
+
+<script src="../../../../assets/js/thumbs.js"></script>
+
+
+<script src="../../../../assets/js/tranquilpeak.js"></script>
+
+<!--SCRIPTS END-->
+
+
+    
+
+
+
+
+    </body>
+</html>
